@@ -1,24 +1,22 @@
 import math
+import re
 
 #start by asking user to input number of travelers
-reservation_number=int(input("How many travelers need hotel rooms? "))
+reservation_number=int(input("How many travelers need hotel rooms?"))
 
-#if the input is 0 or less/a negative number then we would account for it by returning no rooms needed 
+#if the input is 0 or less/a negativer number then we would account for it by returning no rooms needed 
 if reservation_number <= 0:
     print("No rooms needed")
 #for all other numbers greater than 0 and not negative we will print the results for each room type by dividing the number of travelers by the room capacity
 #quads with a capacity of 4, triples with a capacity of 3, doubles with a capacity of 2, and singles with a capacity of 1    
 elif reservation_number > 0:
-    print((reservation_number/4), 'quad rooms')
-    print((reservation_number/3), 'triple rooms')
-    print((reservation_number/2), 'double rooms')
-    print((reservation_number/1), 'single rooms')
+    quads=(reservation_number//4)
+    quadRemainder=(reservation_number-(quads*4))
+    print(quads, 'quad rooms and', (quadRemainder), 'single rooms or ', (quadRemainder//2), 'double rooms')
+    triples=(reservation_number//3)
+    tripleRemainder=(reservation_number-(triples*3))
+    print (triples, 'triple rooms and', tripleRemainder, 'single rooms or', (tripleRemainder//2), 'double rooms')
+    doubles=(reservation_number//2)
+    print(doubles, 'double rooms and', (reservation_number-(doubles*2)), 'single rooms') 
+    print((reservation_number//1), 'single rooms')
 
-#How to read results
-#if the result is a float such as 33.333333333333336 or 12.5 then we know we have to do some additional math
-#We would simply take the result and multipy it by the room capacity then subtract that number from the number of travelers
-#the remainder number will tell us how many additional travelers need rooms and we can put that in the formula to tell us which room type    
-#or another way to read if there is a remainder is as follows
-#if it is 502.5 that is 502 doubles and 1 single because .5 of a double is a single room
-#if it is 33.333333333333336 triple rooms that is 33 triples and 1 single room that is because anything over a whole number will translate to single rooms
-#if is 12.5 quads that is 12 quads and 1 double because .5 of a quad is a double
