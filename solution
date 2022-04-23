@@ -1,0 +1,21 @@
+import math
+
+#start by asking user to input number of travelers
+reservation_number=int(input("How many travelers need hotel rooms?"))
+
+#if the input is 0 or less/a negativer number then we would account for it by returning no rooms needed 
+if reservation_number <= 0:
+    print("No rooms needed")
+#for all other numbers greater than 0 and not negative we will print the results for each room type by dividing the number of travelers by the room capacity
+#quads with a capacity of 4, triples with a capacity of 3, doubles with a capacity of 2, and singles with a capacity of 1    
+elif reservation_number > 0:
+    print((reservation_number/4), 'quad rooms')
+    print((reservation_number/3), 'triple rooms')
+    print((reservation_number/2), 'double rooms')
+    print((reservation_number/1), 'single rooms')
+
+#How to read results
+#if the result is a float such as 33.333333333333336 or 12.5 then we know we have to do some additional math
+#We would simply take the result and multipy it by the room capacity then subtract that number from the number of travelers
+#the remainder number will tell us how many additional travelers need rooms and we can put that in the formula to tell us which room type    
+
