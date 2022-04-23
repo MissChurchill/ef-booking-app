@@ -1,9 +1,9 @@
 import math
 
 #start by asking user to input number of travelers
-reservation_number=int(input("How many travelers need hotel rooms?"))
+reservation_number=int(input("How many travelers need hotel rooms? "))
 
-#if the input is 0 or less/a negativer number then we would account for it by returning no rooms needed 
+#if the input is 0 or less/a negative number then we would account for it by returning no rooms needed 
 if reservation_number <= 0:
     print("No rooms needed")
 #for all other numbers greater than 0 and not negative we will print the results for each room type by dividing the number of travelers by the room capacity
