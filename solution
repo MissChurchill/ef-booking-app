@@ -1,22 +1,26 @@
 import math
 import re
 
-#start by asking user to input number of travelers
-reservation_number=int(input("How many travelers need hotel rooms?"))
+while True:
+    #start by asking user to input number of travelers
+    #validate if answer is an integer
+    try:
+            reservation_number=int(input("How many travelers need hotel rooms? "))
+            #if the input is 0 or less/a negativer number then we would account for it by returning no rooms needed 
+            if reservation_number <= 0:
+                print("No rooms needed")
+        #for all other numbers greater than 0 and not negative we will print the results for each room type by dividing the number of travelers by the room capacity
+        #quads with a capacity of 4, triples with a capacity of 3, doubles with a capacity of 2, and singles with a capacity of 1    
+            elif reservation_number > 0:
+                quads=(reservation_number//4)
+                quadRemainder=(reservation_number-(quads*4))
+                print(quads, 'quad rooms and', (quadRemainder), 'single rooms or ', (quadRemainder//2), 'double rooms')
+                triples=(reservation_number//3)
+                tripleRemainder=(reservation_number-(triples*3))
+                print (triples, 'triple rooms and', tripleRemainder, 'single rooms or', (tripleRemainder//2), 'double rooms')
+                doubles=(reservation_number//2)
+                print(doubles, 'double rooms and', (reservation_number-(doubles*2)), 'single rooms') 
+                print((reservation_number//1), 'single rooms')
 
-#if the input is 0 or less/a negativer number then we would account for it by returning no rooms needed 
-if reservation_number <= 0:
-    print("No rooms needed")
-#for all other numbers greater than 0 and not negative we will print the results for each room type by dividing the number of travelers by the room capacity
-#quads with a capacity of 4, triples with a capacity of 3, doubles with a capacity of 2, and singles with a capacity of 1    
-elif reservation_number > 0:
-    quads=(reservation_number//4)
-    quadRemainder=(reservation_number-(quads*4))
-    print(quads, 'quad rooms and', (quadRemainder), 'single rooms or ', (quadRemainder//2), 'double rooms')
-    triples=(reservation_number//3)
-    tripleRemainder=(reservation_number-(triples*3))
-    print (triples, 'triple rooms and', tripleRemainder, 'single rooms or', (tripleRemainder//2), 'double rooms')
-    doubles=(reservation_number//2)
-    print(doubles, 'double rooms and', (reservation_number-(doubles*2)), 'single rooms') 
-    print((reservation_number//1), 'single rooms')
-
+    except ValueError:
+        print("Please enter a number")
