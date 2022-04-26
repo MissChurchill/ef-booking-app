@@ -1,0 +1,22 @@
+from __future__ import division
+import unittest
+
+class TestCode(unittest.TestCase):
+
+    def test_quads(self):
+        '''Test case function for determining number of quad rooms'''
+        self.assertEqual((8//4), 2)
+        self.assertEqual((12//4), 3)
+    
+    def test_triples(self):
+        '''Test case function for determining number of triple rooms'''
+        self.assertEqual((9//3), 3)
+        self.assertEqual((12//3), 4)
+        
+    def test_doubles(self):
+        '''Test case function for determining number of double rooms'''
+        self.assertEqual((8//2), 4)
+        self.assertEqual((12//2), 6) 
+
+if __name__=='__main__':
+    unittest.main()
